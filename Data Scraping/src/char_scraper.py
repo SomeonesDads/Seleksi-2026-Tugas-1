@@ -1,18 +1,140 @@
 """
-char_scraper.py
----------------
-Fase 2 dari pipeline scrape data HSR Game8.
-
-Membaca data link hasil Fase 1, mengunjungi setiap halaman detail karakter,
-lalu Ngambil atribut lengkap (basic info, stats, build, materials).
-
-Output (disimpan ke ../data/)
------------------------------
-  characters.json
-
-Penggunaan
-----------
-  python char_scraper.py
+Kerangka:
+{
+    "name": "Saber",
+    "archive_id": "519564",
+    "url": "https://game8.co/games/Honkai-Star-Rail/archives/519564",
+    "basic_info": {
+        "rarity": 5,
+        "path": "Destruction",
+        "element": "Wind"
+    },
+    "base_stats": {
+        "level_1": {
+            "hp": 168,
+            "atk": 81,
+            "def": 89,
+            "spd": 101
+        },
+        "level_80": {
+            "hp": 1241,
+            "atk": 601,
+            "def": 654,
+            "spd": 101
+        }
+    },
+    "best_build": {
+        "recommended_light_cones": [
+            "A Thankless Coronation",
+            "Thus Burns the Dawn",
+            "On the Fall of an Aeon",
+            "A Trail of Bygone Blood",
+            "Brighter Than the Sun",
+            "Under the Blue Sky"
+        ],
+        "recommended_relics": [
+            "Wavestrider Captain",
+            "Firmament Frontline Glamoth"
+        ],
+        "main_stats": {
+            "body": [
+                "Crit DMG",
+                "CRIT Rate"
+            ],
+            "feet": [
+                "SPD"
+            ],
+            "planar_sphere": [
+                "Wind DMG"
+            ],
+            "link_rope": [
+                "ATK%"
+            ]
+        }
+    },
+    "total_materials": {
+        "ascension": [
+            {
+                "name": "Thief's Instinct",
+                "amount": 15
+            },
+            {
+                "name": "Usurper's Scheme",
+                "amount": 15
+            },
+            {
+                "name": "Conqueror's Will",
+                "amount": 15
+            },
+            {
+                "name": "A Glass of the Besotted Era",
+                "amount": 65
+            },
+            {
+                "name": "Credit",
+                "amount": 308000
+            }
+        ],
+        "traces": [
+            {
+                "name": "Borisin Teeth",
+                "amount": 15
+            },
+            {
+                "name": "Thief's Instinct",
+                "amount": 41
+            },
+            {
+                "name": "Lupitoxin Sawteeth",
+                "amount": 72
+            },
+            {
+                "name": "Usurper's Scheme",
+                "amount": 56
+            },
+            {
+                "name": "Moon Rage Fang",
+                "amount": 139
+            },
+            {
+                "name": "Conqueror's Will",
+                "amount": 58
+            },
+            {
+                "name": "Destroyer's Final Road",
+                "amount": 12
+            },
+            {
+                "name": "Tracks of Destiny",
+                "amount": 8
+            },
+            {
+                "name": "Credit",
+                "amount": 3000000
+            }
+        ]
+    },
+    "recommended_stats": {
+        "sub_stats_priority": [
+            {
+                "stat": "CRIT Rate",
+                "priority_rank": 1
+            },
+            {
+                "stat": "CRIT DMG",
+                "priority_rank": 2
+            },
+            {
+                "stat": "ATK%",
+                "priority_rank": 3
+            },
+            {
+                "stat": "SPD",
+                "priority_rank": 4
+            }
+        ]
+    }
+}
 """
 
 import json
@@ -51,7 +173,7 @@ def saveJSON(data, filename):
     path = os.path.join(OUTPUT_DIR, filename)
     with open(path, "w", encoding="utf-8") as fh:
         json.dump(data, fh, indent=4, ensure_ascii=False)
-    print(f"  [SAVED] {len(data)} entries -> {path}")
+    print(f"    \n[SAVED] {len(data)} entries -> {path}\n")
 
 
 def parseBasicInfo(soup):
@@ -355,19 +477,14 @@ def print2(text: str):
     else: print("    " + text)
 
 def phase2():
-    print2("[Phase 2] Mulai scraping detail karakter HSR...")
-
     with open("../data/character_links.json", "r", encoding="utf-8") as f:
         charJSON = json.load(f)
 
     all_chars = []
     for i, char in enumerate(charJSON):
-        print2((f"\n[FETCH {i+1}/{len(charJSON)}] Fetching {char['name']}'s page"))
+        print2((f"[FETCH {i+1}/{len(charJSON)}] Fetching {char['name']}'s page..."))
         result = scrapeChar(char)
         if result:
             all_chars.append(result)
 
     saveJSON(all_chars, "characters.json")
-    print("\n[Phase 2] Selesai.")
-
-phase2()
