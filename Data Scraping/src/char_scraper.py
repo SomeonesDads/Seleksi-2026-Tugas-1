@@ -68,8 +68,10 @@ def parseBasicInfo(soup):
 
     for row in table.find_all("tr"):
         th = row.find("th")
-        td = row.find("td")
-        if not th or not td:
+        if not th:
+            continue
+        td = th.find_next_sibling("td")
+        if not td:
             continue
 
         label = th.get_text(strip=True).lower()
@@ -124,6 +126,8 @@ def parseBaseStats(soup):
     return result
 
 
+def normalizeSubStat(text):
+    if(text == "Effect Hit Rate %" or text == "Effect Hit Rate%"): return "EHR"
 def parseBestBuild(soup):
     # Ngambil rekomendasi Light Cone, Relic, dan Main Stat
     build = {
@@ -184,25 +188,57 @@ def parseBestBuild(soup):
         if name and name not in build["recommended_relics"]:
             build["recommended_relics"].append(name)
 
+def normalizeStatName(stat):
+    # Menormalkan nama stat (e.g. EHR dan Effect RES)
+    stat_clean = stat.strip()
+    if stat_clean.lower().startswith("effect hit"):
+        return "EHR"
+    if stat_clean.lower().startswith("effect res"):
+        return "Effect RES"
+    return stat_clean
+
+
+def splitAndNormalize(stat_str):
+    # Memisahkan stat yang digabung dengan "/"
+    parts = stat_str.split("/")
+    result = []
+    for p in parts:
+        normalized = normalizeStatName(p)
+        if normalized:
+            result.append(normalized)
+    return result
+
+
     # Ambil Main Stats dari kolom teks
     for td in base_panel.find_all("td"):
-        raw_text = td.get_text(separator="\n", strip=True)
+        raw_text = td.get_text(separator=" ", strip=True)
 
         if "Body" in raw_text and "Feet" in raw_text:
-            for line in raw_text.splitlines():
-                line = line.strip()
-                if line.startswith("Body"):
-                    stats = re.sub(r"Body\s*:", "", line, flags=re.IGNORECASE).strip()
-                    build["main_stats"]["body"] = [s.strip() for s in stats.split(" or ") if s.strip()]
-                elif line.startswith("Feet"):
-                    stats = re.sub(r"Feet\s*:", "", line, flags=re.IGNORECASE).strip()
-                    build["main_stats"]["feet"] = [s.strip() for s in stats.split(" or ") if s.strip()]
-                elif "Sphere" in line:
-                    stats = re.sub(r"Sphere\s*:", "", line, flags=re.IGNORECASE).strip()
-                    build["main_stats"]["planar_sphere"] = [s.strip() for s in stats.split(" or ") if s.strip()]
-                elif "Rope" in line:
-                    stats = re.sub(r"Rope\s*:", "", line, flags=re.IGNORECASE).strip()
-                    build["main_stats"]["link_rope"] = [s.strip() for s in stats.split(" or ") if s.strip()]
+            body_m = re.search(r"Body\s*:\s*(.*?)(?:Feet|Sphere|Rope|$)", raw_text, re.IGNORECASE)
+            feet_m = re.search(r"Feet\s*:\s*(.*?)(?:Sphere|Rope|$)", raw_text, re.IGNORECASE)
+            sphere_m = re.search(r"Sphere\s*:\s*(.*?)(?:Rope|$)", raw_text, re.IGNORECASE)
+            rope_m = re.search(r"Rope\s*:\s*(.*?)(?:$)", raw_text, re.IGNORECASE)
+            
+            if body_m:
+                stats = []
+                for s in body_m.group(1).split(" or "):
+                    stats.extend(splitAndNormalize(s))
+                build["main_stats"]["body"] = stats
+            if feet_m:
+                stats = []
+                for s in feet_m.group(1).split(" or "):
+                    stats.extend(splitAndNormalize(s))
+                build["main_stats"]["feet"] = stats
+            if sphere_m:
+                stats = []
+                for s in sphere_m.group(1).split(" or "):
+                    stats.extend(splitAndNormalize(s))
+                build["main_stats"]["planar_sphere"] = stats
+            if rope_m:
+                stats = []
+                for s in rope_m.group(1).split(" or "):
+                    stats.extend(splitAndNormalize(s))
+                build["main_stats"]["link_rope"] = stats
 
     return build
 
@@ -211,71 +247,54 @@ def parseMaterials(soup):
     # Ngambil Ascension dan Trace Materials dari section mats
     result = {"ascension": [], "traces": []}
 
-    mat_header = soup.find(id="hl_6")
-    if not mat_header:
+    mat_th = soup.find(lambda tag: tag.name in ["h2", "h3"] and "Materials" in tag.text)
+    if not mat_th:
         return result
 
     tables = []
-    for sibling in mat_header.find_all_next():
+    for sibling in mat_th.find_all_next():
         if sibling.name == "h2":
             break
         if sibling.name == "table":
             tables.append(sibling)
 
-    keys = ["ascension", "traces"]
+    ascension_table = None
+    traces_table = None
 
-    # Ambil dua tabel pertama setelah header (Ascension dan Traces)
-    for i, table in enumerate(tables[:2]):
-        key = keys[i]
+    for tbl in tables:
+        th_texts = [th.get_text(strip=True).lower() for th in tbl.find_all("th")]
+        header = " ".join(th_texts)
+        if "ascension" in header and "total" in header:
+            if not ascension_table: ascension_table = tbl
+        if "trace" in header and "total" in header:
+            if not traces_table: traces_table = tbl
+
+    def parse_table(table):
+        if not table: return []
+        res = []
         for row in table.find_all("tr"):
             tds = row.find_all("td")
             if len(tds) < 2:
                 continue
-
-            name_cell = tds[0]
-            amount_cell = tds[1]
-
-            name_link = name_cell.find("a")
-            name = name_link.get_text(strip=True) if name_link else name_cell.get_text(strip=True)
-
-            raw_amount = amount_cell.get_text(strip=True).replace(",", "")
+            name_link = tds[0].find("a")
+            name = name_link.get_text(strip=True) if name_link else tds[0].get_text(strip=True)
+            raw_amt = tds[1].get_text(strip=True).replace(",", "")
             try:
-                amount = int(raw_amount)
+                amt = int(raw_amt)
+                if name: res.append({"name": name, "amount": amt})
             except ValueError:
-                continue
+                pass
+        return res
 
-            if name:
-                result[key].append({"name": name, "amount": amount})
+    result["ascension"] = parse_table(ascension_table)
+    result["traces"] = parse_table(traces_table)
 
     return result
 
 
 def parseRecommendedStats(soup):
-    # Ngambil target status build dan urutan prioritas sub stat
-    result = {"main_stats": [], "sub_stats_priority": []}
-
-    stat_header = soup.find(id="hm_5")
-    if not stat_header:
-        return result
-
-    table = None
-    for sibling in stat_header.find_all_next():
-        if sibling.name == "h3":
-            break
-        if sibling.name == "table":
-            table = sibling
-            break
-
-    if table:
-        for row in table.find_all("tr"):
-            th = row.find("th")
-            td = row.find("td")
-            if not th or not td:
-                continue
-            stat_name = th.get_text(strip=True)
-            stat_val = td.get_text(strip=True)
-            if stat_name and stat_val:
-                result["main_stats"].append({"stat": stat_name, "recommended_value": stat_val})
+    # Ngambil urutan prioritas sub stat
+    result = {"sub_stats_priority": []}
 
     # Mengambil urutan sub-stats berdasarkan jumlah bintang rating (★)
     build_header = soup.find(id="hl_2")
@@ -287,17 +306,19 @@ def parseRecommendedStats(soup):
             break
         if sibling.name == "td":
             raw = sibling.get_text(separator="\n", strip=True)
-            if "★" in raw and "CRIT" in raw:
+            if "★" in raw:
                 priority_rank = 1
                 for line in raw.splitlines():
                     line = line.strip()
                     if "★" in line and line:
                         stat_name = line.split("★")[0].strip()
                         if stat_name:
-                            result["sub_stats_priority"].append({
-                                "stat": stat_name,
-                                "priority_rank": priority_rank
-                            })
+                            split_stats = splitAndNormalize(stat_name)
+                            for s in split_stats:
+                                result["sub_stats_priority"].append({
+                                    "stat": s,
+                                    "priority_rank": priority_rank
+                                })
                             priority_rank += 1
                 break
 
