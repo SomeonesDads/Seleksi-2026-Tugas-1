@@ -17,5 +17,11 @@ Tpi gk deng, dari hubnya bisa dapat semua info yg kita butuh
 {type: ascension | traces, name: str, rarity: int} (exp material di skip aj)
 NOTE (DBMS): Jangan disamain ascensionnya, kadang gak semuanya sama, keep it separated karena gk tahu kita bisa bervariasi.
 
-LC description stay as is aj, in-game juga kalkulasinya beda
+LC description stay as is aj, in-game juga after-the-fact
 
+Relic ad 2 jenis, Relic sm Planar. Klo kita rely sm desc di site unreliable, jadi klo gk ada 4set yowes planar
+Dlam JSONny kita representasiin jadi type, jadi klopun diupdate gamenya kedepan ditambah jenis jenis set baru bisa adaptable dibanding kita klasifikasiin dari awal. (harusnya gak akan diupdate si...)
+
+MISC: Mats, Credits, udah itu aj si
+
+Gimana ngeclean unreleased char?
