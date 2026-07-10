@@ -9,7 +9,7 @@ Step 1: Kita ngambil semua link-link yang punya data data Char, Light Cone, Reli
                   Listed in the Relic Sets section (id="hl_10") of the
                   main wiki page.
 
-Step 2: Kita save ke data dalam bentuk json
+Kita save ke data dalam bentuk json
 - character_links.json
 - light_cone_links.json
 - relic_links.json
@@ -199,7 +199,7 @@ def scrapeRelicLink(soup: BeautifulSoup):
 
 def phase1():
     print("=" * 55)
-    print(" Phase 1: Scraping links dari hub ")
+    print(" Phase 1: Scraping links from hub ")
     print("=" * 55)
     print("\n[FETCH 1/2] Fetching main HSR wiki page...")
     main_soup = fetch(MAIN_HSR_PAGE)
