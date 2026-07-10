@@ -3,3 +3,11 @@ Link Char + Relic dari https://game8.co/games/Honkai-Star-Rail
 Link LC dari https://game8.co/games/Honkai-Star-Rail/archives/406599 (Gtau yg scrollable bisa ato gak)
 User agent bisa didapat dari https://whatmyuseragent.com/
 Gak tau kenapa tapi kayak web boothill dia gak pake archive id? whtever bro
+
+Char Scraping
+Problems:
+- rarity rusak
+- best_build: main_stat masih rusak, dia gak ngeletak apa statnya tapi nulis ulang?
+- recommended_stats main stats cut aja, gak konsisten sebenarnya apa lagi ada make specific set point (spd +1 bronya) (Yowes kita cut aj)
+- matsnya kurang
+- Beberapa sub_stats_priority gak ada kayak tingyun sama rappa, bedanya apa?
