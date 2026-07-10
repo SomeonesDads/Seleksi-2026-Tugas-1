@@ -126,8 +126,26 @@ def parseBaseStats(soup):
     return result
 
 
-def normalizeSubStat(text):
-    if(text == "Effect Hit Rate %" or text == "Effect Hit Rate%"): return "EHR"
+def normalizeStatName(stat):
+    stat_clean = stat.strip()
+    if stat_clean.lower().startswith("effect hit"):
+        return "EHR"
+    if stat_clean.lower().startswith("effect res"):
+        return "Effect RES"
+    return stat_clean
+
+
+def splitAndNormalize(stat_str):
+    # Memisahkan stat yang digabung dengan "/"
+    parts = stat_str.split("/")
+    result = []
+    for p in parts:
+        normalized = normalizeStatName(p)
+        if normalized:
+            result.append(normalized)
+    return result
+
+
 def parseBestBuild(soup):
     # Ngambil rekomendasi Light Cone, Relic, dan Main Stat
     build = {
@@ -188,27 +206,6 @@ def parseBestBuild(soup):
         if name and name not in build["recommended_relics"]:
             build["recommended_relics"].append(name)
 
-def normalizeStatName(stat):
-    # Menormalkan nama stat (e.g. EHR dan Effect RES)
-    stat_clean = stat.strip()
-    if stat_clean.lower().startswith("effect hit"):
-        return "EHR"
-    if stat_clean.lower().startswith("effect res"):
-        return "Effect RES"
-    return stat_clean
-
-
-def splitAndNormalize(stat_str):
-    # Memisahkan stat yang digabung dengan "/"
-    parts = stat_str.split("/")
-    result = []
-    for p in parts:
-        normalized = normalizeStatName(p)
-        if normalized:
-            result.append(normalized)
-    return result
-
-
     # Ambil Main Stats dari kolom teks
     for td in base_panel.find_all("td"):
         raw_text = td.get_text(separator=" ", strip=True)
@@ -241,7 +238,6 @@ def splitAndNormalize(stat_str):
                 build["main_stats"]["link_rope"] = stats
 
     return build
-
 
 def parseMaterials(soup):
     # Ngambil Ascension dan Trace Materials dari section mats
