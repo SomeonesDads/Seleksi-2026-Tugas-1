@@ -11,3 +11,11 @@ Problems:
 - recommended_stats main stats cut aja, gak konsisten sebenarnya apa lagi ada make specific set point (spd +1 bronya) (Yowes kita cut aj)
 - matsnya kurang (solved)
 - Beberapa sub_stats_priority gak ada kayak tingyun sama rappa, bedanya apa? 
+
+LC sama char sama sama make upgrade mats, entry point baru bearti https://game8.co/games/Honkai-Star-Rail/archives/407120, harus ada link scraping lgi...
+Tpi gk deng, dari hubnya bisa dapat semua info yg kita butuh
+{type: ascension | traces, name: str, rarity: int} (exp material di skip aj)
+NOTE (DBMS): Jangan disamain ascensionnya, kadang gak semuanya sama, keep it separated karena gk tahu kita bisa bervariasi.
+
+LC description stay as is aj, in-game juga kalkulasinya beda
+
