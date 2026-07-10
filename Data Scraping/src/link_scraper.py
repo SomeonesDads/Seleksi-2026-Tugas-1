@@ -71,9 +71,24 @@ def saveJSON(data: list, filename: str):
 def scrapeCharLink(soup: BeautifulSoup):
     # Tiap char ada <img> alt="Star Rail - <CharacterName>"
     # Tinggal cari itu, baru ke parent <a> dapat kita url + namanya di textfield
+    # Perketat lagi, hanya ngambil img dari children char table, ditandai children yang memiliki text list of all characters
+
+    # EXCLUDEARCHIVE = [608550, 485994, 408464, 408462, 408463, 408461, 408460, 408459, 408458, 530842, 608552, 608551, 530841] # Masuk rupanya beberapa LC
+
     results: list[dict] = []
     seen: set[str] = set()
-    char_imgs = soup.find_all(
+
+    marker = soup.find("th", string=re.compile(r"List of All Characters", re.IGNORECASE))
+    if not marker:
+        print("  [ERROR] Could not find 'List of All Characters' table header.")
+        return []
+    
+    char_table = marker.find_parent("table")
+    if not char_table:
+        print("  [ERROR] Parent table for characters not found.")
+        return []
+    
+    char_imgs = char_table.find_all(
         "img",
         alt=re.compile(r"^Star Rail - .+")
     )
