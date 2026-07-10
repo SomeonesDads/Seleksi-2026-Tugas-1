@@ -1,34 +1,13 @@
 """
-Step 2: Dari masing masing file links, kita mau scraping data satu-satu
-- Characters    : https://game8.co/games/Honkai-Star-Rail
-                  Identified by img alt="Star Rail - <Name>" in the
-                  character grid section of the main wiki page.
-- Light Cones   : https://game8.co/games/Honkai-Star-Rail/archives/406599
-                  Structured table with Cone_cell / Rarity_cell / Path_cell.
-- Relic Sets    : https://game8.co/games/Honkai-Star-Rail
-                  Listed in the Relic Sets section (id="hl_10") of the
-                  main wiki page.
-
+Phase 2: Dari masing masing file links, kita mau scraping data satu-satu
 Kita save ke data dalam bentuk json
 - characters.json
 - light_cone.json
 - relic.json
-
-Kerangka:
-{   
-    "name": "Acheron", 
-    "archive_id": "436053",
-    "url": "https://game8.co/games/Honkai-Star-Rail/archives/436053" 
-}
+- 
 """
 
-import json
-import os
-import re
-import time
-import requests
-import char_scraper, lc_scraper, relic_scraper
-from bs4 import BeautifulSoup
+import char_scraper, lc_scraper, relic_scraper, misc_scraper
 
 
 HEADERS = {
@@ -37,14 +16,15 @@ HEADERS = {
 }
 
 def phase2():
-    print("=" * 55)
-    print(" Phase 2: Scraping data from collected links ")
-    print("=" * 55)
-    print("\n[STEP 1/3] Visiting character links...")
-    char_scraper.scrapeChar()
-    print("\n[STEP 2/3] Visiting light cone links...")
-    lc_scraper.scrapeLC()
-    print("\n[STEP 3/3] Visiting relic links...")
-    relic_scraper.scrapeRelic()
+    print("\n[STEP 1/4] Visiting character links...")
+    char_scraper.scrapeChars()
+    print("\n[STEP 2/4] Visiting light cone links...")
+    lc_scraper.scrapeLCs()
+    print("\n[STEP 3/4] Visiting relic links...")
+    relic_scraper.scrapeRelics()
+    print("\n[STEP 4/4] Visiting material hub...")
+    misc_scraper.scrapeMiscs()
+    
+
     print("\n[DONE] All link queues saved to the data/ folder.")
 

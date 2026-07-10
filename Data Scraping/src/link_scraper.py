@@ -213,9 +213,6 @@ def scrapeRelicLink(soup: BeautifulSoup):
 
 
 def phase1():
-    print("=" * 55)
-    print(" Phase 1: Scraping links from hub ")
-    print("=" * 55)
     print("\n[FETCH 1/2] Fetching main HSR wiki page...")
     main_soup = fetch(MAIN_HSR_PAGE)
     if main_soup is None:
