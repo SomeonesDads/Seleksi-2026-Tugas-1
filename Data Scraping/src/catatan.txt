@@ -1,2 +1,5 @@
+Link Scraping
 Link Char + Relic dari https://game8.co/games/Honkai-Star-Rail
 Link LC dari https://game8.co/games/Honkai-Star-Rail/archives/406599 (Gtau yg scrollable bisa ato gak)
+User agent bisa didapat dari https://whatmyuseragent.com/
+Gak tau kenapa tapi kayak web boothill dia gak pake archive id? whtever bro
