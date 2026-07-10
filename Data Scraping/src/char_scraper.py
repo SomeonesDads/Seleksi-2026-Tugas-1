@@ -476,7 +476,7 @@ def print2(text: str):
         print("    " + text[1:])
     else: print("    " + text)
 
-def phase2():
+def scrapeChars():
     with open("../data/character_links.json", "r", encoding="utf-8") as f:
         charJSON = json.load(f)
 
