@@ -1,0 +1,682 @@
+[
+    {
+        "name": "Credit",
+        "rarity": "3",
+        "type": "currency"
+    },
+    {
+        "name": "Flower of Eternity",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Safeguard of Amber",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Key of Wisdom",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Stellaris Symphony",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Obsidian of Obsession",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Arrow of the Starchaser",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Worldbreaker Blade",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Shape Shifter's Lightning Staff",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Gelid Chitin",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Golden Crown of the Past Shadow",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Void Cast Iron",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Storm Eye",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Lightning Crown of the Past Shadow",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Horn of Snow",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Endotherm Chitin",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Broken Teeth of Iron Wolf",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Artifex's Gyreheart",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Immortal Lumintwig",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Ancient Engine",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Silvermane Medal",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Squirming Core",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Conqueror's Will",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Enigmatic Ectostella",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Ascendant Debris",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Suppressing Edict",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Nail of the Ape",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Searing Steel Blade",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Netherworld Token",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Tears of Dreams",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Dream Flamer",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Dream Fridge",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Heaven Incinerator",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Heavenly Melody",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Shards of Desires",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Moon Rage Fang",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Dream Making Engine",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Raging Heart",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Divine Amber",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Myriad Fruit",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Countertemporal Shot",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "IPC Work Permit",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Exquisite Colored Draft",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "A Glass of the Besotted Era",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Nail of the Beast Coffin",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Chordal Mirage",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Flower of Alaya",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Glory-Aspersed Torso",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Darkveil Moonlight",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Harbinger of Strife",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Tears of Souls",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Eternal Lament",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Invasive Clot",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Charred Bud of Twilight",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Sea Siren's Torn Fin",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Radiant Prominence",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "The Fluffy Collector's Edition",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Lucid Awl",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Lance of Retribution",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Thunder Strum",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Heart of Phagousa",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Sneering Harlequin",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Cosmic Sandpit",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Omnicolor, Fool's Own",
+        "rarity": 4,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Sprout of Life",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Oath of Steel",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Key of Knowledge",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Ancestral Hymn",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Obsidian of Desolation",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Arrow of the Demon Slayer",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Lifeless Blade",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Artifex's Cogwheel",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Immortal Aeroblossom",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Ancient Spindle",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Silvermane Insignia",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Glimmering Core",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Usurper's Scheme",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Starfire Essence",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Celestial Section",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Fragments of Impression",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Lupitoxin Sawteeth",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Dream Flow Valve",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Crystal Meteorites",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Nourishing Honey",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Destined Expiration",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Dynamic Outlining",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Seedling of Manas",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Courage-Torn Chest",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Echoing Wail",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "The Fluffy Serialization Memorial Issue",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Dreamweave Steel",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Resin of Valor",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Wine of Phagousa",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Sixen, King-Rook Fork",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Galaxy Framework",
+        "rarity": 3,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Seed of Abundance",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Endurance of Bronze",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Key of Inspiration",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Harmonic Tune",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Obsidian of Dread",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Arrow of the Beast Hunter",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Shattered Blade",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Artifex's Module",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Immortal Scionette",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Ancient Part",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Silvermane Badge",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Extinguished Core",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Thief's Instinct",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Firmament Note",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Fiery Spirit",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Borisin Teeth",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Tatters of Thought",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Dream Collection Component",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Scattered Stardust",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Alien Tree Seed",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Meteoric Bullet",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Rough Sketch",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Bija of Consciousness",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Fear-Stomped Flesh",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Ethereal Omen",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "The Fluffy Hand-drawn Storyboards",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Whimsy Wax",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Grit of Strife",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Tear of Phagousa",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Four Phases, Crossing the River to Check the King",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Celestial Globe",
+        "rarity": 2,
+        "type": "ascension_mat"
+    },
+    {
+        "name": "Tracks of Destiny",
+        "rarity": 5,
+        "type": "trace_mat"
+    },
+    {
+        "name": "Destroyer's Final Road",
+        "rarity": 4,
+        "type": "trace_mat"
+    },
+    {
+        "name": "Guardian's Lament",
+        "rarity": 4,
+        "type": "trace_mat"
+    },
+    {
+        "name": "Regret of Infinite Ochema",
+        "rarity": 4,
+        "type": "trace_mat"
+    },
+    {
+        "name": "Past Evils of the Borehole Planet Disaster",
+        "rarity": 4,
+        "type": "trace_mat"
+    },
+    {
+        "name": "Lost Echo of the Shared Wish",
+        "rarity": 4,
+        "type": "trace_mat"
+    },
+    {
+        "name": "Auspice Sliver",
+        "rarity": 4,
+        "type": "trace_mat"
+    },
+    {
+        "name": "Daythunder Anamnesis",
+        "rarity": 4,
+        "type": "trace_mat"
+    },
+    {
+        "name": "Vanquished Flow's Reticence",
+        "rarity": 4,
+        "type": "trace_mat"
+    },
+    {
+        "name": "High Hopes of the Falsely Enlightened",
+        "rarity": 4,
+        "type": "trace_mat"
+    }
+]
