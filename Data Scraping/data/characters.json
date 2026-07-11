@@ -815,37 +815,6 @@
         }
     },
     {
-        "name": "Summeretto",
-        "archive_id": "607261",
-        "url": "https://game8.co/games/Honkai-Star-Rail/archives/607261",
-        "basic_info": {
-            "rarity": null,
-            "path": null,
-            "element": null
-        },
-        "base_stats": {
-            "level_1": {},
-            "level_80": {}
-        },
-        "best_build": {
-            "recommended_light_cones": [],
-            "recommended_relics": [],
-            "main_stats": {
-                "body": [],
-                "feet": [],
-                "planar_sphere": [],
-                "link_rope": []
-            }
-        },
-        "total_materials": {
-            "ascension": [],
-            "traces": []
-        },
-        "recommended_stats": {
-            "sub_stats_priority": []
-        }
-    },
-    {
         "name": "Black Swan",
         "archive_id": "436054",
         "url": "https://game8.co/games/Honkai-Star-Rail/archives/436054",
@@ -2782,99 +2751,6 @@
         }
     },
     {
-        "name": "Rin Tohsaka",
-        "archive_id": "601938",
-        "url": "https://game8.co/games/Honkai-Star-Rail/archives/601938",
-        "basic_info": {
-            "rarity": null,
-            "path": null,
-            "element": null
-        },
-        "base_stats": {
-            "level_1": {},
-            "level_80": {}
-        },
-        "best_build": {
-            "recommended_light_cones": [],
-            "recommended_relics": [],
-            "main_stats": {
-                "body": [],
-                "feet": [],
-                "planar_sphere": [],
-                "link_rope": []
-            }
-        },
-        "total_materials": {
-            "ascension": [
-                {
-                    "name": "Thief's Instinct",
-                    "amount": 15
-                },
-                {
-                    "name": "Usurper's Scheme",
-                    "amount": 15
-                },
-                {
-                    "name": "Conqueror's Will",
-                    "amount": 15
-                },
-                {
-                    "name": "Sneering Harlequin",
-                    "amount": 65
-                },
-                {
-                    "name": "Traveler's Guide",
-                    "amount": 290
-                },
-                {
-                    "name": "Credit",
-                    "amount": 888000
-                }
-            ],
-            "traces": [
-                {
-                    "name": "Celestial Globe",
-                    "amount": 18
-                },
-                {
-                    "name": "Thief's Instinct",
-                    "amount": 41
-                },
-                {
-                    "name": "Galaxy Framework",
-                    "amount": 69
-                },
-                {
-                    "name": "Usurper's Scheme",
-                    "amount": 56
-                },
-                {
-                    "name": "Cosmic Sandpit",
-                    "amount": 139
-                },
-                {
-                    "name": "Conqueror's Will",
-                    "amount": 58
-                },
-                {
-                    "name": "Destroyer's Final Road",
-                    "amount": 12
-                },
-                {
-                    "name": "Tracks of Destiny",
-                    "amount": 8
-                },
-                {
-                    "name": "Credit",
-                    "amount": 3000000
-                }
-            ]
-        },
-        "recommended_stats": {
-            "sub_stats_priority": []
-        }
-    },
-    {
         "name": "Jade",
         "archive_id": "451833",
         "url": "https://game8.co/games/Honkai-Star-Rail/archives/451833",
@@ -3145,37 +3021,6 @@
         }
     },
     {
-        "name": "Waveflair",
-        "archive_id": "607267",
-        "url": "https://game8.co/games/Honkai-Star-Rail/archives/607267",
-        "basic_info": {
-            "rarity": null,
-            "path": null,
-            "element": null
-        },
-        "base_stats": {
-            "level_1": {},
-            "level_80": {}
-        },
-        "best_build": {
-            "recommended_light_cones": [],
-            "recommended_relics": [],
-            "main_stats": {
-                "body": [],
-                "feet": [],
-                "planar_sphere": [],
-                "link_rope": []
-            }
-        },
-        "total_materials": {
-            "ascension": [],
-            "traces": []
-        },
-        "recommended_stats": {
-            "sub_stats_priority": []
-        }
-    },
-    {
         "name": "Robin",
         "archive_id": "437261",
         "url": "https://game8.co/games/Honkai-Star-Rail/archives/437261",
@@ -3305,141 +3150,6 @@
                 },
                 {
                     "stat": "SPD",
-                    "priority_rank": 4
-                }
-            ]
-        }
-    },
-    {
-        "name": "Boothill",
-        "archive_id": null,
-        "url": "https://game8.co/games/Honkai-Star-Rail/archives/Boothill-Best-Builds",
-        "basic_info": {
-            "rarity": 5,
-            "path": "Hunt",
-            "element": "Physical"
-        },
-        "base_stats": {
-            "level_1": {
-                "hp": 163,
-                "atk": 84,
-                "def": 59,
-                "spd": 107
-            },
-            "level_80": {
-                "hp": 1203,
-                "atk": 620,
-                "def": 436,
-                "spd": 107
-            }
-        },
-        "best_build": {
-            "recommended_light_cones": [
-                "Sailing Towards A Second Life",
-                "Shadowed by Night",
-                "Cruising in the Stellar Sea",
-                "Swordplay",
-                "Sleep Like the Dead",
-                "Adversarial"
-            ],
-            "recommended_relics": [
-                "Iron Cavalry Against the Scourge",
-                "Talia: Kingdom of Banditry"
-            ],
-            "main_stats": {
-                "body": [
-                    "CRIT Rate",
-                    "CRIT DMG"
-                ],
-                "feet": [
-                    "SPD"
-                ],
-                "planar_sphere": [
-                    "Physical DMG"
-                ],
-                "link_rope": [
-                    "Break Effect"
-                ]
-            }
-        },
-        "total_materials": {
-            "ascension": [
-                {
-                    "name": "Tatters of Thought",
-                    "amount": 15
-                },
-                {
-                    "name": "Fragments of Impression",
-                    "amount": 15
-                },
-                {
-                    "name": "Shards of Desires",
-                    "amount": 15
-                },
-                {
-                    "name": "IPC Work Permit",
-                    "amount": 65
-                },
-                {
-                    "name": "Credit",
-                    "amount": 308000
-                }
-            ],
-            "traces": [
-                {
-                    "name": "Meteoric Bullet",
-                    "amount": 15
-                },
-                {
-                    "name": "Tatters of Thought",
-                    "amount": 41
-                },
-                {
-                    "name": "Destined Expiration",
-                    "amount": 72
-                },
-                {
-                    "name": "Fragments of Impression",
-                    "amount": 56
-                },
-                {
-                    "name": "Countertemporal Shot",
-                    "amount": 139
-                },
-                {
-                    "name": "Shards of Desires",
-                    "amount": 58
-                },
-                {
-                    "name": "Lost Echo of the Shared Wish",
-                    "amount": 12
-                },
-                {
-                    "name": "Tracks of Destiny",
-                    "amount": 8
-                },
-                {
-                    "name": "Credit",
-                    "amount": 3000000
-                }
-            ]
-        },
-        "recommended_stats": {
-            "sub_stats_priority": [
-                {
-                    "stat": "Break Effect",
-                    "priority_rank": 1
-                },
-                {
-                    "stat": "SPD",
-                    "priority_rank": 2
-                },
-                {
-                    "stat": "CRIT Rate",
-                    "priority_rank": 3
-                },
-                {
-                    "stat": "CRIT DMG",
                     "priority_rank": 4
                 }
             ]
@@ -5590,99 +5300,6 @@
                     "priority_rank": 4
                 }
             ]
-        }
-    },
-    {
-        "name": "Gilgamesh",
-        "archive_id": "601941",
-        "url": "https://game8.co/games/Honkai-Star-Rail/archives/601941",
-        "basic_info": {
-            "rarity": null,
-            "path": null,
-            "element": null
-        },
-        "base_stats": {
-            "level_1": {},
-            "level_80": {}
-        },
-        "best_build": {
-            "recommended_light_cones": [],
-            "recommended_relics": [],
-            "main_stats": {
-                "body": [],
-                "feet": [],
-                "planar_sphere": [],
-                "link_rope": []
-            }
-        },
-        "total_materials": {
-            "ascension": [
-                {
-                    "name": "Extinguished Core",
-                    "amount": 15
-                },
-                {
-                    "name": "Glimmering Core",
-                    "amount": 15
-                },
-                {
-                    "name": "Squirming Core",
-                    "amount": 15
-                },
-                {
-                    "name": "Thunder Strum",
-                    "amount": 65
-                },
-                {
-                    "name": "Traveler's Guide",
-                    "amount": 290
-                },
-                {
-                    "name": "Credit",
-                    "amount": 888000
-                }
-            ],
-            "traces": [
-                {
-                    "name": "Four Phases, Crossing the River to Check the King",
-                    "amount": 18
-                },
-                {
-                    "name": "Extinguished Core",
-                    "amount": 41
-                },
-                {
-                    "name": "Sixen, King-Rook Fork",
-                    "amount": 69
-                },
-                {
-                    "name": "Glimmering Core",
-                    "amount": 56
-                },
-                {
-                    "name": "Omnicolor, Fool's Own",
-                    "amount": 139
-                },
-                {
-                    "name": "Squirming Core",
-                    "amount": 58
-                },
-                {
-                    "name": "Guardian's Lament",
-                    "amount": 12
-                },
-                {
-                    "name": "Tracks of Destiny",
-                    "amount": 8
-                },
-                {
-                    "name": "Credit",
-                    "amount": 3000000
-                }
-            ]
-        },
-        "recommended_stats": {
-            "sub_stats_priority": []
         }
     },
     {
@@ -10100,6 +9717,141 @@
         }
     },
     {
+        "name": "Asta",
+        "archive_id": "405743",
+        "url": "https://game8.co/games/Honkai-Star-Rail/archives/405743",
+        "basic_info": {
+            "rarity": 4,
+            "path": "Harmony",
+            "element": "Fire"
+        },
+        "base_stats": {
+            "level_1": {
+                "hp": 139,
+                "atk": 69,
+                "def": 63,
+                "spd": 106
+            },
+            "level_80": {
+                "hp": 1023,
+                "atk": 511,
+                "def": 463,
+                "spd": 106
+            }
+        },
+        "best_build": {
+            "recommended_light_cones": [
+                "Memories of the Past",
+                "Carve the Moon, Weave the Clouds",
+                "Dance! Dance! Dance!",
+                "Meshing Cogs",
+                "Chorus"
+            ],
+            "recommended_relics": [
+                "Messenger Traversing Hackerspace",
+                "Broken Keel"
+            ],
+            "main_stats": {
+                "body": [
+                    "HP%",
+                    "DEF%"
+                ],
+                "feet": [
+                    "SPD"
+                ],
+                "planar_sphere": [
+                    "HP%",
+                    "DEF%"
+                ],
+                "link_rope": [
+                    "Energy Regen"
+                ]
+            }
+        },
+        "total_materials": {
+            "ascension": [
+                {
+                    "name": "Silvermane Badge",
+                    "amount": 12
+                },
+                {
+                    "name": "Silvermane Insignia",
+                    "amount": 13
+                },
+                {
+                    "name": "Silvermane Medal",
+                    "amount": 12
+                },
+                {
+                    "name": "Endotherm Chitin",
+                    "amount": 50
+                },
+                {
+                    "name": "Credit",
+                    "amount": 246400
+                }
+            ],
+            "traces": [
+                {
+                    "name": "Harmonic Tune",
+                    "amount": 12
+                },
+                {
+                    "name": "Silvermane Badge",
+                    "amount": 28
+                },
+                {
+                    "name": "Ancestral Hymn",
+                    "amount": 54
+                },
+                {
+                    "name": "Silvermane Insignia",
+                    "amount": 42
+                },
+                {
+                    "name": "Stellaris Symphony",
+                    "amount": 105
+                },
+                {
+                    "name": "Silvermane Medal",
+                    "amount": 42
+                },
+                {
+                    "name": "Destroyer's Final Road",
+                    "amount": 12
+                },
+                {
+                    "name": "Tracks of Destiny",
+                    "amount": 5
+                },
+                {
+                    "name": "Credit",
+                    "amount": 2400000
+                }
+            ]
+        },
+        "recommended_stats": {
+            "sub_stats_priority": [
+                {
+                    "stat": "SPD",
+                    "priority_rank": 1
+                },
+                {
+                    "stat": "HP%",
+                    "priority_rank": 2
+                },
+                {
+                    "stat": "DEF%",
+                    "priority_rank": 3
+                },
+                {
+                    "stat": "Effect RES",
+                    "priority_rank": 4
+                }
+            ]
+        }
+    },
+    {
         "name": "Jiaoqiu",
         "archive_id": "457205",
         "url": "https://game8.co/games/Honkai-Star-Rail/archives/457205",
@@ -10505,99 +10257,6 @@
                     "priority_rank": 4
                 }
             ]
-        }
-    },
-    {
-        "name": "Nova",
-        "archive_id": "601025",
-        "url": "https://game8.co/games/Honkai-Star-Rail/archives/601025",
-        "basic_info": {
-            "rarity": null,
-            "path": null,
-            "element": null
-        },
-        "base_stats": {
-            "level_1": {},
-            "level_80": {}
-        },
-        "best_build": {
-            "recommended_light_cones": [],
-            "recommended_relics": [],
-            "main_stats": {
-                "body": [],
-                "feet": [],
-                "planar_sphere": [],
-                "link_rope": []
-            }
-        },
-        "total_materials": {
-            "ascension": [
-                {
-                    "name": "Whimsy Wax",
-                    "amount": 15
-                },
-                {
-                    "name": "Dreamweave Steel",
-                    "amount": 15
-                },
-                {
-                    "name": "Lucid Awl",
-                    "amount": 15
-                },
-                {
-                    "name": "Radiant Prominence",
-                    "amount": 65
-                },
-                {
-                    "name": "Traveler's Guide",
-                    "amount": 290
-                },
-                {
-                    "name": "Credit",
-                    "amount": 888000
-                }
-            ],
-            "traces": [
-                {
-                    "name": "Celestial Globe",
-                    "amount": 18
-                },
-                {
-                    "name": "Whimsy Wax",
-                    "amount": 41
-                },
-                {
-                    "name": "Galaxy Framework",
-                    "amount": 69
-                },
-                {
-                    "name": "Dreamweave Steel",
-                    "amount": 56
-                },
-                {
-                    "name": "Cosmic Sandpit",
-                    "amount": 139
-                },
-                {
-                    "name": "Lucid Awl",
-                    "amount": 58
-                },
-                {
-                    "name": "Vanquished Flow's Reticence",
-                    "amount": 12
-                },
-                {
-                    "name": "Tracks of Destiny",
-                    "amount": 8
-                },
-                {
-                    "name": "Credit",
-                    "amount": 3000000
-                }
-            ]
-        },
-        "recommended_stats": {
-            "sub_stats_priority": []
         }
     },
     {
