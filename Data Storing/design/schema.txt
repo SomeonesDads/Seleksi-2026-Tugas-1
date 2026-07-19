@@ -1,0 +1,158 @@
+// Input sendiri aja
+Table path {
+  path_id serial [pk]
+  name varchar(50) [unique, not null]
+}
+
+Table element {
+  element_id serial [pk]
+  name varchar(50) [unique, not null]
+}
+
+// Dari scraping
+
+Table material {
+  material_id serial [pk]
+  name varchar(100) [unique, not null]
+  rarity smallint [not null, note: '2 | 3 | 4 | 5']
+  type varchar(20) [not null, note: 'ascension | trace | currency']
+}
+
+Table character {
+  character_id serial [pk]
+  archive_id varchar(20) [unique, not null]
+  name varchar(100) [not null]
+  rarity smallint [not null, note: '4 | 5']
+  path_id integer [not null, ref: > path.path_id]
+  element_id integer [not null, ref: > element.element_id]
+  hp_lv1 integer
+  atk_lv1 integer
+  def_lv1 integer
+  spd_lv1 integer
+  hp_lv80 integer
+  atk_lv80 integer
+  def_lv80 integer
+  spd_lv80 integer
+}
+
+Table character_ascension_material {
+  character_id integer [ref: > character.character_id]
+  material_id integer [ref: > material.material_id]
+  amount integer [not null]
+
+  indexes {
+    (character_id, material_id) [pk]
+  }
+}
+
+Table character_trace_material {
+  character_id integer [ref: > character.character_id]
+  material_id integer [ref: > material.material_id]
+  amount integer [not null]
+
+  indexes {
+    (character_id, material_id) [pk]
+  }
+}
+
+Table character_recommended_lc {
+  character_id integer [ref: > character.character_id]
+  light_cone_id integer [ref: > light_cone.light_cone_id]
+  priority_rank smallint [not null, note: '1 = most recommended']
+
+  indexes {
+    (character_id, light_cone_id) [pk]
+  }
+}
+
+Table character_recommended_relic {
+  character_id integer [ref: > character.character_id]
+  relic_set_id integer [ref: > relic_set.relic_set_id]
+  priority_rank smallint [not null, note: '1 = most recommended']
+
+  indexes {
+    (character_id, relic_set_id) [pk]
+  }
+}
+
+Table character_main_stat {
+  character_id integer [ref: > character.character_id]
+  slot varchar(20) [not null, note: 'body | feet | planar_sphere | link_rope']
+  stat_name varchar(50) [not null]
+  priority_rank smallint [not null, note: '1 = most recommended within slot']
+
+  indexes {
+    (character_id, slot, stat_name) [pk]
+  }
+}
+
+Table character_sub_stat_priority {
+  character_id integer [ref: > character.character_id]
+  stat_name varchar(50) [not null]
+  priority_rank smallint [not null]
+
+  indexes {
+    (character_id, stat_name) [pk]
+  }
+}
+
+Table light_cone {
+  light_cone_id serial [pk]
+  archive_id varchar(20) [unique, not null]
+  name varchar(100) [not null]
+  rarity smallint [not null, note: '3 | 4 | 5']
+  path_id integer [not null, ref: > path.path_id]
+  hp_lv1 integer
+  atk_lv1 integer
+  def_lv1 integer
+  hp_lv80 integer
+  atk_lv80 integer
+  def_lv80 integer
+  passive_name varchar(100)
+  passive_description text
+}
+
+Table light_cone_ascension_material {
+  light_cone_id integer [ref: > light_cone.light_cone_id]
+  material_id integer [ref: > material.material_id]
+  amount integer [not null]
+
+  indexes {
+    (light_cone_id, material_id) [pk]
+  }
+}
+
+Table relic_set {
+  relic_set_id serial [pk]
+  archive_id varchar(20) [unique, not null]
+  name varchar(100) [not null]
+  type varchar(10) [not null, note: 'relic | planar']
+  effect_2pc text
+  effect_4pc text [note: 'NULL untuk planar']
+}
+
+// Tambahan
+
+Table team {
+  team_id serial [pk]
+  name varchar(100) [not null]
+  description text
+  created_at timestamptz [default: `now()`]
+}
+
+Table active_character {
+  active_char_id serial [pk]
+  team_id integer [not null, ref: > team.team_id]
+  character_id integer [not null, ref: > character.character_id]
+  slot_number smallint [not null, note: '1 | 2 | 3']
+  level smallint [not null, default: 1, note: '1-80']
+  eidolon smallint [not null, default: 0, note: '0-6']
+  equipped_lc_id integer [ref: > light_cone.light_cone_id, note: 'nullable']
+  lc_level integer [not null, default: 1, note: '1-80']
+  lc_superimposition smallint [note: '1-5, nullable if no LC equipped']
+
+  indexes {
+    (team_id, slot_number) [unique, note: 'one char per slot per team']
+    (team_id, character_id) [unique, note: 'no duplicate chars in a team']
+  }
+}
