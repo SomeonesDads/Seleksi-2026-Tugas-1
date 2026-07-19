@@ -9032,5 +9032,176 @@
                 }
             ]
         }
+    },
+    {
+        "name": "Patience Is All You Need",
+        "archive_id": "417670",
+        "url": "https://game8.co/games/Honkai-Star-Rail/archives/417670",
+        "basic_info": {
+            "rarity": 5,
+            "path": "The Nihility"
+        },
+        "base_stats": {
+            "level_1": {
+                "hp": 1,
+                "atk": 26,
+                "def": 21
+            },
+            "level_80": {
+                "hp": 1058,
+                "atk": 582,
+                "def": 463
+            }
+        },
+        "passive_skill": {
+            "name": "Spider Web",
+            "description": "Increases DMG dealt by the wearer by 24%. After every attack unleashed by the wearer, the wearer's SPD increases by 4.8%, stacking up to 3 times. If the wearer hits an enemy target that is not afflicted by Erode, there is a 100% base chance to inflict Erode on the target. Enemies afflicted with Erode are also considered to be Shocked and will receive Lightning DoT at the start of each turn equal to 60% of the wearer's ATK, lasting for 1 turn."
+        },
+        "total_materials": {
+            "ascension": [
+                {
+                    "name": "Thief's Instinct",
+                    "amount": 20
+                },
+                {
+                    "name": "Obsidian of Dread",
+                    "amount": 4
+                },
+                {
+                    "name": "Obsidian of Desolation",
+                    "amount": 12
+                },
+                {
+                    "name": "Usurper's Scheme",
+                    "amount": 20
+                },
+                {
+                    "name": "Obsidian of Obsession",
+                    "amount": 15
+                },
+                {
+                    "name": "Conqueror's Will",
+                    "amount": 14
+                },
+                {
+                    "name": "Credit",
+                    "amount": 385000
+                }
+            ]
+        }
+    },
+    {
+        "name": "Earthly Escapade",
+        "archive_id": "441041",
+        "url": "https://game8.co/games/Honkai-Star-Rail/archives/441041",
+        "basic_info": {
+            "rarity": 5,
+            "path": "The Harmony"
+        },
+        "base_stats": {
+            "level_1": {
+                "hp": 52,
+                "atk": 24,
+                "def": 21
+            },
+            "level_80": {
+                "hp": 1164,
+                "atk": 529,
+                "def": 463
+            }
+        },
+        "passive_skill": {
+            "name": "Capriciousness",
+            "description": "Increases the wearer's CRIT DMG by 32%. At the start of the battle, the wearer gains Mask, lasting for 3 turns. While the wearer has Mask, the wearer's allies have their CRIT Rate increased by 10% and their CRIT DMG increased by 28%. For every 1 Skill Point the wearer recovers (including Skill Points that exceed the limit), they gain 1 stack of Radiant Flame. And when the wearer has 4 stacks of Radiant Flame, all the stacks are removed, and they gain Mask, lasting for 4 turns."
+        },
+        "total_materials": {
+            "ascension": [
+                {
+                    "name": "Tatters of Thought",
+                    "amount": 20
+                },
+                {
+                    "name": "Firmament Note",
+                    "amount": 4
+                },
+                {
+                    "name": "Celestial Section",
+                    "amount": 12
+                },
+                {
+                    "name": "Fragments of Impression",
+                    "amount": 20
+                },
+                {
+                    "name": "Heavenly Melody",
+                    "amount": 15
+                },
+                {
+                    "name": "Shards of Desires",
+                    "amount": 14
+                },
+                {
+                    "name": "Credit",
+                    "amount": 385000
+                }
+            ]
+        }
+    },
+    {
+        "name": "Carve the Moon, Weave the Clouds",
+        "archive_id": "408545",
+        "url": "https://game8.co/games/Honkai-Star-Rail/archives/408545",
+        "basic_info": {
+            "rarity": 4,
+            "path": "The Harmony"
+        },
+        "base_stats": {
+            "level_1": {
+                "hp": 43,
+                "atk": 21,
+                "def": 15
+            },
+            "level_80": {
+                "hp": 952,
+                "atk": 476,
+                "def": 330
+            }
+        },
+        "passive_skill": {
+            "name": "Secret",
+            "description": "At the start of the battle and whenever the wearer's turn begins, one of the following effects is applied randomly: All allies' ATK increases by 10%, all allies' CRIT DMG increases by 12%, or all allies' Energy Regeneration Rate increases by 6%. The applied effect cannot be identical to the last effect applied, and will replace the previous effect. The applied effect will be removed when the wearer has been knocked down. Effects of the similar type cannot be stacked."
+        },
+        "total_materials": {
+            "ascension": [
+                {
+                    "name": "Thief's Instinct",
+                    "amount": 15
+                },
+                {
+                    "name": "Harmonic Tune",
+                    "amount": 3
+                },
+                {
+                    "name": "Ancestral Hymn",
+                    "amount": 9
+                },
+                {
+                    "name": "Usurper's Scheme",
+                    "amount": 15
+                },
+                {
+                    "name": "Stellaris Symphony",
+                    "amount": 12
+                },
+                {
+                    "name": "Conqueror's Will",
+                    "amount": 12
+                },
+                {
+                    "name": "Credit",
+                    "amount": 164000
+                }
+            ]
+        }
     }
 ]

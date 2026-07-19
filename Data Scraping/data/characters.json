@@ -4218,7 +4218,11 @@
                     "priority_rank": 3
                 },
                 {
-                    "stat": "HP% or DEF%",
+                    "stat": "HP%",
+                    "priority_rank": 4
+                },
+                {
+                    "stat": "DEF%",
                     "priority_rank": 4
                 }
             ]
@@ -6643,7 +6647,11 @@
                     "priority_rank": 3
                 },
                 {
-                    "stat": "HP% or DEF%",
+                    "stat": "HP%",
+                    "priority_rank": 4
+                },
+                {
+                    "stat": "DEF%",
                     "priority_rank": 4
                 }
             ]
