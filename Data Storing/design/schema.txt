@@ -9,13 +9,17 @@ Table element {
   name varchar(50) [unique, not null]
 }
 
-// Dari scraping
+Table stat {
+  stat_id serial [pk]
+  name varchar(60) [unique, not null]
+}
 
+// Dari scraping
 Table material {
   material_id serial [pk]
   name varchar(100) [unique, not null]
   rarity smallint [not null, note: '2 | 3 | 4 | 5']
-  type varchar(20) [not null, note: 'ascension | trace | currency']
+  type varchar(20) [not null, note: 'ascension_mat | trace_mat | currency']
 }
 
 Table character {
@@ -39,7 +43,6 @@ Table character_ascension_material {
   character_id integer [ref: > character.character_id]
   material_id integer [ref: > material.material_id]
   amount integer [not null]
-
   indexes {
     (character_id, material_id) [pk]
   }
@@ -49,7 +52,6 @@ Table character_trace_material {
   character_id integer [ref: > character.character_id]
   material_id integer [ref: > material.material_id]
   amount integer [not null]
-
   indexes {
     (character_id, material_id) [pk]
   }
@@ -59,9 +61,9 @@ Table character_recommended_lc {
   character_id integer [ref: > character.character_id]
   light_cone_id integer [ref: > light_cone.light_cone_id]
   priority_rank smallint [not null, note: '1 = most recommended']
-
   indexes {
     (character_id, light_cone_id) [pk]
+    (character_id, priority_rank)
   }
 }
 
@@ -69,30 +71,30 @@ Table character_recommended_relic {
   character_id integer [ref: > character.character_id]
   relic_set_id integer [ref: > relic_set.relic_set_id]
   priority_rank smallint [not null, note: '1 = most recommended']
-
   indexes {
     (character_id, relic_set_id) [pk]
+    (character_id, priority_rank)
   }
 }
 
 Table character_main_stat {
   character_id integer [ref: > character.character_id]
   slot varchar(20) [not null, note: 'body | feet | planar_sphere | link_rope']
-  stat_name varchar(50) [not null]
+  stat_id integer [not null, ref: > stat.stat_id]
   priority_rank smallint [not null, note: '1 = most recommended within slot']
-
   indexes {
-    (character_id, slot, stat_name) [pk]
+    (character_id, slot, stat_id) [pk]
+    (character_id, slot)
   }
 }
 
 Table character_sub_stat_priority {
   character_id integer [ref: > character.character_id]
-  stat_name varchar(50) [not null]
+  stat_id integer [not null, ref: > stat.stat_id]
   priority_rank smallint [not null]
-
   indexes {
-    (character_id, stat_name) [pk]
+    (character_id, stat_id) [pk]
+    (character_id, priority_rank)
   }
 }
 
@@ -110,13 +112,15 @@ Table light_cone {
   def_lv80 integer
   passive_name varchar(100)
   passive_description text
+  indexes {
+    (path_id)
+  }
 }
 
 Table light_cone_ascension_material {
   light_cone_id integer [ref: > light_cone.light_cone_id]
   material_id integer [ref: > material.material_id]
   amount integer [not null]
-
   indexes {
     (light_cone_id, material_id) [pk]
   }
@@ -128,16 +132,15 @@ Table relic_set {
   name varchar(100) [not null]
   type varchar(10) [not null, note: 'relic | planar']
   effect_2pc text
-  effect_4pc text [note: 'NULL untuk planar']
+  effect_4pc text [note: 'NULL untuk planar, wajib untuk relic (enforced via trigger trg_check_relic_type)']
 }
 
 // Tambahan
-
 Table team {
   team_id serial [pk]
   name varchar(100) [not null]
   description text
-  created_at timestamptz [default: `now()`]
+  created_at timestamptz [not null, default: `now()`]
 }
 
 Table active_character {
@@ -147,10 +150,9 @@ Table active_character {
   slot_number smallint [not null, note: '1 | 2 | 3']
   level smallint [not null, default: 1, note: '1-80']
   eidolon smallint [not null, default: 0, note: '0-6']
+  trace_level smallint [not null, default: 1, note: '1-10']
   equipped_lc_id integer [ref: > light_cone.light_cone_id, note: 'nullable']
-  lc_level integer [not null, default: 1, note: '1-80']
-  lc_superimposition smallint [note: '1-5, nullable if no LC equipped']
-
+  lc_superimposition smallint [note: '1-5, required if LC equipped, NULL otherwise (enforced via trigger trg_check_lc_superimposition)']
   indexes {
     (team_id, slot_number) [unique, note: 'one char per slot per team']
     (team_id, character_id) [unique, note: 'no duplicate chars in a team']
