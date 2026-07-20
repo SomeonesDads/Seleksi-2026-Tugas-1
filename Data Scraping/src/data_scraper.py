@@ -7,7 +7,7 @@ Kita save ke data dalam bentuk json
 - 
 """
 
-import char_scraper, lc_scraper, relic_scraper, misc_scraper, test_missing_lcs
+import char_scraper, lc_scraper, relic_scraper, misc_scraper, fix_missing_lcs, normalize_stats
 
 
 HEADERS = {
@@ -24,7 +24,8 @@ def phase2():
     relic_scraper.scrapeRelics()
     print("\n[STEP 4/4] Visiting material hub...")
     misc_scraper.scrapeMiscs()
-    test_missing_lcs.fix()
+    fix_missing_lcs.fix()
+    normalize_stats.run()
     
 
     
