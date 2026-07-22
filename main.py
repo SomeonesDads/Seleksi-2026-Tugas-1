@@ -19,41 +19,40 @@ def main():
     root_dir = os.path.dirname(os.path.abspath(__file__))
     
     # 1. Run Data Scraping/src/main.py
-    print("--- 1. Run Data Scraping ---")
+    print("--- [MAIN] Run Data Scraping ---")
     scraping_src = os.path.join(root_dir, 'Data Scraping', 'src')
     scraping_main = os.path.join(scraping_src, 'main.py')
     
     try:
         subprocess.run([sys.executable, scraping_main], cwd=scraping_src, check=True)
     except subprocess.CalledProcessError as e:
-        print(f"Data Scraping failed with error: {e}")
+        print(f"[MAIN::ERROR] Data Scraping: {e}")
         return
 
         
     # 2. Run schema.sql
-    print("\n--- 2. Push schema.sql ---")
+    print("\n--- [MAIN] Push schema.sql ---")
     schema_path = os.path.join(root_dir, 'Data Storing', 'src', 'schema.sql')
     
     with open(schema_path, 'r', encoding='utf-8') as f:
         schema_sql = f.read()
         
-    print(f"Connecting to database {DB_CONFIG['dbname']} at {DB_CONFIG['host']}:{DB_CONFIG['port']}...")
+    print(f"[MAIN] Connecting to database {DB_CONFIG['dbname']} at {DB_CONFIG['host']}:{DB_CONFIG['port']}...")
     try:
         conn = psycopg2.connect(**DB_CONFIG)
         conn.autocommit = True
         with conn.cursor() as cur:
             cur.execute(schema_sql)
         conn.close()
-        print("Schema executed successfully.")
+        print("[MAIN] Schema pushed.")
     except psycopg2.Error as e:
-        print(f"Notice during schema execution: {e}")
-        print("This might be expected if the tables already exist.")
+        print(f"[MAIN::ERROR] schema.sql: {e}")
         
     # 3. Run load() in load_data.py
-    print("\n--- 3. Run load_data.load() ---")
+    print("\n--- [MAIN] Run load_data.load() ---")
     try:
         load(DB_CONFIG)
     except Exception as e:
-        print(f"Data loading failed: {e}")
+        print(f"[MAIN::ERROR] Data loading: {e}")
 
 main()
