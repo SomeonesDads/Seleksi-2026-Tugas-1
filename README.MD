@@ -111,3 +111,15 @@ Penggunaan AI terbatas terhadap bagaimana baiknya melakukan web scraping menggun
 Semua pengerjaan coding, penyusunan skema, dan pengimplementasian database di postgres saya lakukan pribadi.
 
 ## Referensi
+
+Char Page
+![CharPage](charpage.png)
+
+LC Page
+![LCPage](lcpage.png)
+
+Relic Page
+![RelicPage](relicpage.png)
+
+Material Page
+![MaterialPage](materialpage.png)
