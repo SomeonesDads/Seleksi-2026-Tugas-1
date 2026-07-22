@@ -45,9 +45,9 @@ Berikut adalah struktur dari file JSON yang dihasilkan oleh scraper di folder `D
 Pada skema kita akan selalu berpusat pada 4 entity utama: Character, Light Cone, Relic, dan Materials. Rekomendasi penggunaan suatu barang (char - LC, char - Relic, dsb) beserta dengan keterikatan material yang digunakan untuk upgrade char atau LC semua akan kita tuliskan dalam sebuah weak entity relation berisikan key dari kedua entity yang bersangkutan. Untuk memunculkan adanya relasi antara char dan LC yang digunakannya sekarang, ditambahkan empat relasi/entity active_char, active_lc, active_relic, dan team sebagai hub dari relasi relasi "active" tersebut. Team ini akan menjadi representasi tim yang aktif digunakan player berisikan kit yang benar benar digunakannya.
 
 - **ERD:**
-  ![ERD](Data%20Storing/design/erd.png)
+  ![ERD](Data%20Storing/design/ERD.png)
 - **Diagram Relasional:**
-  ![Relational Diagram](Data%20Storing/design/relational_diagram.png)
+  ![Relational Diagram](Data%20Storing/design/Relational.png)
 
 ## Proses Translasi ERD ke Diagram Relasional
 
