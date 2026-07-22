@@ -4,13 +4,6 @@ import sys
 import psycopg2
 from psycopg2.extras import execute_values
 
-DB_CONFIG = {
-    "host":     "localhost",
-    "port":     5432,
-    "dbname":   "hsr_db",
-    "user":     "postgres",
-    "password": "Undertale",
-}
 
 DATA_DIR = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
@@ -291,7 +284,7 @@ def insertCharacters(cur, chars, path_map, element_map, stat_map, mat_map, lc_ma
     return char_map
 
 
-def load():
+def load(db_config):
     print("Mulai Data Loading...")
     header("Phase 1: Loading scraped JSON files")
     print("[LOAD 1/4] Loading characters.json...")
@@ -305,8 +298,8 @@ def load():
     print(f"\n[DONE] All JSON files loaded from data/ folder.")
 
     header("Phase 2: Connecting to PostgreSQL")
-    print(f"[CONNECT] Connecting to {DB_CONFIG['dbname']} at {DB_CONFIG['host']}:{DB_CONFIG['port']}...")
-    conn = psycopg2.connect(**DB_CONFIG)
+    print(f"[CONNECT] Connecting to {db_config['dbname']} at {db_config['host']}:{db_config['port']}...")
+    conn = psycopg2.connect(**db_config)
     cur = conn.cursor()
     print("[CONNECTED] Connection established.")
     try:
