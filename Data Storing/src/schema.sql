@@ -119,33 +119,44 @@ CREATE TABLE team (
     created_at  TIMESTAMPTZ  NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE active_character (
-    active_char_id    SERIAL PRIMARY KEY,
-    team_id           INT      NOT NULL REFERENCES team(team_id) ON DELETE CASCADE,
-    character_id      INT      NOT NULL REFERENCES character(character_id),
-    slot_number       SMALLINT NOT NULL CHECK (slot_number BETWEEN 1 AND 3),
-    level             SMALLINT NOT NULL DEFAULT 1  CHECK (level BETWEEN 1 AND 80),
-    eidolon           SMALLINT NOT NULL DEFAULT 0  CHECK (eidolon BETWEEN 0 AND 6),
-    trace_level       SMALLINT NOT NULL DEFAULT 1  CHECK (trace_level BETWEEN 1 AND 10),
-    equipped_lc_id    INT      REFERENCES light_cone(light_cone_id),
-    lc_superimposition SMALLINT CHECK (lc_superimposition BETWEEN 1 AND 5),
-    UNIQUE (team_id, slot_number),
-    UNIQUE (team_id, character_id)
+CREATE TABLE active_lc (
+    active_lc_id    SERIAL PRIMARY KEY,
+    light_cone_id   INT      NOT NULL REFERENCES light_cone(light_cone_id),
+    level           SMALLINT NOT NULL DEFAULT 1 CHECK (level BETWEEN 1 AND 80),
+    superimposition SMALLINT NOT NULL DEFAULT 1 CHECK (superimposition BETWEEN 1 AND 5)
 );
 
---Triggers + helpers
+CREATE TABLE active_character (
+    active_char_id SERIAL PRIMARY KEY,
+    team_id        INT      NOT NULL REFERENCES team(team_id) ON DELETE CASCADE,
+    character_id   INT      NOT NULL REFERENCES character(character_id),
+    slot_number    SMALLINT NOT NULL CHECK (slot_number BETWEEN 1 AND 3),
+    level          SMALLINT NOT NULL DEFAULT 1 CHECK (level BETWEEN 1 AND 80),
+    eidolon        SMALLINT NOT NULL DEFAULT 0 CHECK (eidolon BETWEEN 0 AND 6),
+    trace_level    SMALLINT NOT NULL DEFAULT 1 CHECK (trace_level BETWEEN 1 AND 10),
+    active_lc_id   INT      REFERENCES active_lc(active_lc_id),
+    UNIQUE (team_id, slot_number),
+    UNIQUE (team_id, character_id),
+    UNIQUE (active_lc_id)
+);
 
--- Fungsi validasi konsistensi tipe relic set terhadap efek yang tersedia
+CREATE TABLE active_relic (
+    active_char_id INT         NOT NULL REFERENCES active_character(active_char_id) ON DELETE CASCADE,
+    slot           VARCHAR(20) NOT NULL CHECK (slot IN ('head', 'hands', 'body', 'feet', 'planar_sphere', 'link_rope')),
+    relic_set_id   INT         NOT NULL REFERENCES relic_set(relic_set_id),
+    main_stat_id   INT         NOT NULL REFERENCES stat(stat_id),
+    level          SMALLINT    NOT NULL DEFAULT 0 CHECK (level BETWEEN 0 AND 15),
+    PRIMARY KEY (active_char_id, slot)
+);
+
 CREATE OR REPLACE FUNCTION fn_check_relic_type()
 RETURNS TRIGGER AS $$
 BEGIN
-    -- Planar cuma 2pc
     IF NEW.type = 'planar' AND NEW.effect_4pc IS NOT NULL THEN
         RAISE EXCEPTION
             'Relic set bertipe planar tidak boleh memiliki effect_4pc (id: %).', NEW.relic_set_id;
     END IF;
 
-    --  Relic wajib ad efek 4pc
     IF NEW.type = 'relic' AND NEW.effect_4pc IS NULL THEN
         RAISE EXCEPTION
             'Relic set bertipe relic harus memiliki effect_4pc (id: %).', NEW.relic_set_id;
@@ -155,32 +166,33 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Trigger validasi tipe relic set sebelum insert atau update
 CREATE TRIGGER trg_check_relic_type
     BEFORE INSERT OR UPDATE ON relic_set
     FOR EACH ROW
     EXECUTE FUNCTION fn_check_relic_type();
 
--- Fungsi validasi superimposistion, harus ad klo ad activelc, dan gk boleh ad klo gk ad activelc
-CREATE OR REPLACE FUNCTION fn_check_lc_superimposition()
+CREATE OR REPLACE FUNCTION fn_check_relic_slot_type()
 RETURNS TRIGGER AS $$
+DECLARE
+    v_type VARCHAR(10);
 BEGIN
-    IF NEW.equipped_lc_id IS NOT NULL AND NEW.lc_superimposition IS NULL THEN
+    SELECT type INTO v_type FROM relic_set WHERE relic_set_id = NEW.relic_set_id;
+
+    IF NEW.slot IN ('head', 'hands', 'body', 'feet') AND v_type <> 'relic' THEN
         RAISE EXCEPTION
-            'Light cone terpasang harus memiliki nilai lc_superimposition (active_char_id: %).', NEW.active_char_id;
+            'Slot % hanya boleh diisi relic_set bertipe relic (active_char_id: %).', NEW.slot, NEW.active_char_id;
     END IF;
-    IF NEW.equipped_lc_id IS NULL AND NEW.lc_superimposition IS NOT NULL THEN
+
+    IF NEW.slot IN ('planar_sphere', 'link_rope') AND v_type <> 'planar' THEN
         RAISE EXCEPTION
-            'lc_superimposition tidak boleh diisi jika tidak ada light cone terpasang (active_char_id: %).', NEW.active_char_id;
+            'Slot % hanya boleh diisi relic_set bertipe planar (active_char_id: %).', NEW.slot, NEW.active_char_id;
     END IF;
 
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
--- Trigger validasi superimposition light cone sebelum insert atau update
-CREATE TRIGGER trg_check_lc_superimposition
-    BEFORE INSERT OR UPDATE ON active_character
+CREATE TRIGGER trg_check_relic_slot_type
+    BEFORE INSERT OR UPDATE ON active_relic
     FOR EACH ROW
-    EXECUTE FUNCTION fn_check_lc_superimposition();
-
+    EXECUTE FUNCTION fn_check_relic_slot_type();
