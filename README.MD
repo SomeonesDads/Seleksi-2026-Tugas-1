@@ -4,72 +4,110 @@
   ETL Project
   <br>
   <br>
-</h1>
 
-<h2 align="left">
-  <br>
-  Singkatnya?
-  <br>
-</h2>
-Pada tahap seleksi ini, peserta akan diminta untuk melakukan proses ETL yang meliputi data scraping, database modeling, dan data storing terkait sebuah topik yang dibebaskan kepada peserta. Peserta juga diminta untuk merancang sebuah model ERD dan model relasional yang akan diimplementasikan untuk menyimpan hasil proses data scraping sebelumnya. Tahap seleksi ini menguji kemampuan peserta untuk mengumpulkan data, merancang sebuah database, dan merealisasikan rancangan tersebut menjadi sebuah database relasional yang fungsional.
-  <br>
+## Author
 
-## Step 1: Data Scraping
-1. Pilih sebuah topik yang akan kalian jadikan sebagai tema pada seleksi _data scraping_ Anda. Daftarkan topik tersebut ke dalam spreadsheet berikut:
-[Daftar Topik Seleksi Asisten Lab Basis Data 2026](https://docs.google.com/spreadsheets/d/1cowSMPtWQApyALrypfMBJSOuqbXyGh2cCaDXKRs8fD4/edit?usp=sharing)
-    - Usahakan agar tidak ada dua atau lebih peserta dengan topik yang sama
-    - First come, first served. Bila ada dua atau lebih peserta dengan topik yang sama, peserta dengan topik yang sudah terdaftar duluan (berada di atas) akan diprioritaskan.
-    - Akses edit ke _spreadsheet_ topik data scraping akan ditutup pada tanggal **25 Juli pukul 20:40 WIB**
-2. Lakukan _data scraping_ dari sebuah _web page_ untuk memperoleh data dan informasi sesuai dengan topik yang telah dipilih oleh masing-masing peserta. 
-    - Data dan informasi yang diperoleh akan digunakan di _step_ berikutnya sebagai data yang akan disimpan di dalam sebuah RDBMS
-    - Peserta **DILARANG** menggunakan API untuk melakukan proses data scraping
-3. Pada folder `Data Scraping`, peserta harus mengumpulkan file _script_ dan file JSON hasil _scraping_ yang telah dilakukan
-    - Folder `src` berisi _script_/_code_ yang telah digunakan untuk _scraping_. Pastikan bahwa _script_/_code_ yang kalian bua bersifat well documented dan clean. 
-    - Folder `data` berisi semua data dan informasi yang berhasil kalian scrape dalam bentu JSON. Peserta diperbolehkan untuk memisahkan hasil _scraping_ ke dalam file-file yang berbeda ataupun digabung dalam satu file yang besar. Yang penting sesuai dengan output dari _script_ _data scraping_ yang digunakan
-    - Folder `screenshot` berisi tangkapan layar dari _script/code_ yang kalian gunakan untuk _data scraping_. Pastikan tangkapan layar dapat dibaca dengan jelas
-4. Sebagai referensi untuk mempelajari dan mengenal _data scraping_, asisten telah menyiapkan dokumen panduan singkat pada link berikut: Panduan Singkat Data Scraping
-    - Dokumen tersebut hanya merupakan panduan bagi peserta. Metodologi _data scraping_ yang digunakan oleh peserta seleksi basdat dibebaskan (asal sesuai peraturan)
-    - Perhatikan dan peragakan etika _data scraping_ yang baik dalam pelaksanaan seleksi ini
-5. Syarat data yang diperoleh dari proses data scraping: Data yang diperoleh harus di-_preprocessing_ terlebih dahulu
-    - Beberapa contoh _preprocessing_:
-        - Cleaning
-        - Parsing
-        - Transformation
-        - Dll
-    - Preprocessing dilakukan untuk memastikan data yang diterima tidak sepenuh-penuhnya mentah dan tidak dapat dipahami dengan mudah
-  
+- **Nama:** Natanael I Manurung
+- **NIM:** 13524021
 
-## Step 2: Data Modeling + Data Storing
-1. Dari hasil proses _data scraping_ yang telah dilakukan, lakukan perancangan _database_ dalam bentuk **ERD**. Sertakan asumsi dan penjelasan di dalam desain ERD-nya bila diperlukan
-2. Translasikan hasil desain ERD tersebut ke dalam bentuk diagram relasional. Peserta dipersilahkan untuk menambahkan tabel lain yang sekiranya relevan atau berkaitan dengan tabel-tabel yang murni didapatkan dari proses _data scraping_.
-3. Implementasikan skema diagram relasional tersebut ke dalam RDBMS sesuai pilihan peserta (PostgreSQL, mariaDB, etc). Peserta **dilarang** untuk menggunakan DBMS no-SQL
-    - Jangan lupa untuk mengimplementasikan _constraints_ ke dalam _database_ (primary key, foreign key, trigger, dll)
-4. Setelah _database_-nya telah diimplementasikan, masukkan data yang didapatkan dari proses _scraping_ ke dalam RDBMS yang telah dibuat
-    - Tabel tambahan yang dibuat pada poin 2 tidak perlu diisi dengan data (baik data _dummy_ maupun data asli). Cukup dibiarkan kosong
-5. Tools yang digunakan dibebaskan kepada peserta
-6. Pada folder `Data Storing`, peserta harus mengumpulkan bukti penyimpanan data pada DBMS. Folder `Data Storing` terdiri dari folder `design`, `export`, dan `screenshots`.
-    - Folder `design` berisi gambar ERD dan gambar diagram relasional dari _database_ yang kalian rancang. Format file yang diterima adalah **.png**
-    - Folder `src` berisi script/code yang telah digunakan untuk storing. Pastikan bahwa script/code yang kalian bua bersifat well documented dan clean. 
-    - Folder `export` berisi file hasil _export_ dari DBMS dengan format **.sql**
-    - Folder `screenshots` berisi tangkapan layar bukti dari penyimpanan data ke dalam RDBMS (Query SELECT FROM WHERE pada RDBMS)
+## Deskripsi Singkat
 
-## Bonus:
-Task-task berikut merupakan bonus yang **TIDAK WAJIB** dilakukan oleh peserta seleksi. Penyelesaian satu atau lebih dari task bonus akan membawa nilai tambahan bagi peserta yang menyelesaikannya. Peserta dibolehkan untuk mengerjakan sebagian atau seluruh dari task bonus yang tersedia
-1. Buatlah perancangan dan implementasi data warehouse berdasarkan data yang diperoleh dari proses data scraping. Rancanglah skema yang diperlukan untuk fact table dan dimension table (misalnya menggunakan pendekatan star schema atau snowflake schema) untuk mendukung kebutuhan analitik. Sertakan struktur skema data warehouse yang digunakan beserta contoh query analitik yang bisa dijalankan terhadap data tersebut. 
-2. Lakukan automated scheduling untuk keseluruhan proses, sehingga data dapat di-update secara berkala. Pastikan tidak terdapat redundansi data pada DBMS. Jika mengerjakan bonus ini, jelaskan pada README dan cantumkan pada data waktu pelaksanaan scheduling, misalnya dengan menunjukkan perbedaan timestamp ekstraksi antara data pada batch pertama dan data pada batch kedua
+**Data & DBMS:**
+Data yang diambil adalah data karakter, light cone, relic, dan material dari game Honkai Star Rail. DBMS yang digunakan adalah PostgreSQL. Data akan diambil dari website game8.co, website guide yang berisikan data data tertera. Dikarenakan ini adalah website guide, data yang ditarik bukan hanya data data masing masing entity saja. Terdapat rekomendasi rekomendasi pairing, antara karakter dan LC, karakter dan Relic, dan pairing lainnya yang akan tercantum pada database.
 
+**Mengapa memilih topik tersebut:**
+Selain dari ketertarikan pribadi terhadap topik ini, data yang ditarik saling berkaitan, jumlahnya yang banyak, dan informasi yang bersifat widely available menurut saya menjadi salah satu contoh terbaik terhadap pengaplikasian tugas data scraping. Mengapa memilih website game8.co? Karena data datanya paling "cocok" adanya disitu, meski pada awalnya mau menggunakan prydwen.gg, namun web yang kompleks dan cloudflare yang agresif mengakibatkan beautifulsoup terlalu kewalahan dalam melakukan webscraping. Struktur game8.co "mostly" konsisten, tapi tetap dihadapi beberapa masalah terkait konsistensi baik pada struktur web atau dari data yang tercantum
 
-# Pengumpulan
-1. Peserta diwajibkan untuk melakukan _fork_ terhadap project [GitHub Seleksi Lab Basdat 2026](https://github.com/wargabasdat/Seleksi-2026-Tugas-1). Peserta harus melakukan _pull request_ dengan nama **TUGAS_SELEKSI_1_[NIM]** sebelum tenggat waktu yang telah ditetapkan
-2. Tambahkan **.gitignore** pada _file_ atau _folder_ yang tidak perlu di-upload. NB: Binary tidak perlu di-upload
-3. Sertakan file **README** yang memuat:
-    - Author (Nama dan NIM)
-    - Deskripsi singkat mengenai data dan DBMS yang telah dibuat + mengapa kalian memilih topik tersebut
-    - Cara menggunakan scraper yang telah dibuat dan menggunakan hasil output-nya
-    - Penjelasan struktur dari file JSON yang dihasilkan scraper
-    - Struktur ERD dan diagram relasional RDBMS
-    - Penjelasan mengenai proses translasi ERD menjadi diagram relasional
-    - Beberapa screenshot dari program yang dijalankan (image di-upload sesuai folder-folder yang tersedia, di README tinggal ditampilkan)
-    - Referensi (library yang digunakan, link halaman web yang di-scrape, etc)
-  
-# DEADLINE PENGUMPULAN ADALAH TANGGAL 23 Juli 2026, PUKUL 22:40
+## Cara Menggunakan Scraper dan Output-nya
+
+**Menjalankan Scraper:**
+
+1. Pastikan credential postgres (username, password, port) sudah tepat di `main.py`
+2. Install dependencies: `pip install -r requirements.txt`
+3. Jalankan script utama: `python main.py`
+
+**Menggunakan Output:**
+
+- Hasil scraping akan disimpan dalam folder `Data Scraping/data/` dalam bentuk file JSON.
+- Secara otomatis, `main.py` akan menjalankan query dari `schema.sql` dan loading data dari JSON ke dalam PostgreSQL.
+
+## Struktur File JSON
+
+Berikut adalah struktur dari file JSON yang dihasilkan oleh scraper di folder `Data Scraping/data/`:
+
+- **characters.json:** Kumpulan data karakter berupa _List of Dictionary_ yang berisi atribut `name`, `archive_id`, `url`, `basic_info` (rarity, path, element), `base_stats` (HP, ATK, DEF, SPD untuk level 1 dan 80), `best_build` (rekomendasi light cone, relic, dan main stats), `recommended_stats` (sub-stats priority), serta `total_materials` (material ascension dan traces).
+- **light_cone.json:** Kumpulan data Light Cone berupa _List of Dictionary_ yang memuat `name`, `archive_id`, `url`, `basic_info` (rarity, path), `base_stats` (HP, ATK, DEF level 1 dan 80), `passive_skill` (nama dan deskripsi pasif), dan `total_materials` (kebutuhan material ascension).
+- **relic.json:** Kumpulan data Relic dan Planar berupa _List of Dictionary_ yang meliputi `name`, `archive_id`, `url`, `type` (relic atau planar), dan `set_effects` (deskripsi efek 2-piece dan 4-piece).
+- **materials.json:** Daftar material berupa _List of Dictionary_ yang berisi `name`, `rarity` (rating bintang), dan `type` (kategori seperti currency, ascension_mat, atau trace_mat).
+
+## Struktur ERD dan Diagram Relasional
+
+Pada skema kita akan selalu berpusat pada 4 entity utama: Character, Light Cone, Relic, dan Materials. Rekomendasi penggunaan suatu barang (char - LC, char - Relic, dsb) beserta dengan keterikatan material yang digunakan untuk upgrade char atau LC semua akan kita tuliskan dalam sebuah weak entity relation berisikan key dari kedua entity yang bersangkutan. Untuk memunculkan adanya relasi antara char dan LC yang digunakannya sekarang, ditambahkan empat relasi/entity active_char, active_lc, active_relic, dan team sebagai hub dari relasi relasi "active" tersebut. Team ini akan menjadi representasi tim yang aktif digunakan player berisikan kit yang benar benar digunakannya.
+
+- **ERD:**
+  ![ERD](Data%20Storing/design/erd.png)
+- **Diagram Relasional:**
+  ![Relational Diagram](Data%20Storing/design/relational_diagram.png)
+
+## Proses Translasi ERD ke Diagram Relasional
+
+### 1. Strong entity -> Tabel dengan Primary Key Tunggal
+
+Strong entity kuat pada ERD (Character, Light Cone, Relics/relic_set, Element, Path, Stat, material, team) ditranslate menjadi satu tabel dengan surrogate key (serial) sebagai primary key, misalnya character_id, light_cone_id, relic_set_id. Atribut natural seperti archive_id (hasil scraping) tetap disimpan sebagai unique key alternatif untuk keperluan traceability terhadap sumber data dari scraping, bukan sebagai PK utama.
+
+### 2. Relasi One-to-Many -> Foreign Key pada Sisi "Many"
+
+Relasi seperti Part of (Character/Light Cone → Path) dan Holds (Character → Element) ditranslate menjadi kolom foreign key pada tabel di sisi "many":
+
+character.path_id dan character.element_id
+light_cone.path_id
+
+Pola yang sama berlaku pada relasi When Obtained (Character → Active_Char, Light Cone → Active_LC), di mana active_character.character_id dan active_character.equipped_lc_id menjadi FK yang menunjuk ke entitas induknya.
+
+### 3. Relasi Many-to-Many -> Tabel Junction
+
+Setiap relasi many-to-many pada ERD (Recommended, Needs) ditranslate menjadi tabel junction tersendiri dengan composite primary key dari kedua FK yang terlibat, ditambah atribut milik relasi itu sendiri:
+
+Character Needs Material (atribut Amount) -> character_ascension_material dan character_trace_material (dipisah berdasarkan type material agar query lebih spesifik)
+Light Cone Needs Material -> light_cone_ascension_material
+Character Recommended Light Cone (atribut Order) -> character_recommended_lc dengan kolom priority_rank
+Character Recommended Relics -> character_recommended_relic dengan kolom priority_rank
+
+Karena satu relasi Recommended pada ERD digambar generik untuk beberapa pasangan entitas berbeda (Relics, Light Cone, Sub Stat), masing-masing decompose menjadi tabel junction terpisah agar tidak ambigu secara relasional.
+
+### 4. Weak Entity -> Tabel dengan Composite Key yang Mengandung FK strongnya
+
+Entitas Sub Stat pada ERD sebenarnya adalah representasi relasi many-to-many antara Character dan Stat (via relasi Detailed) yang memiliki atribut order. Ini ditranslate menjadi dua tabel:
+
+character_sub_stat_priority (composite PK: character_id, stat_id)
+character_main_stat (composite PK: character_id, slot, stat_id), karena satu karakter punya prioritas stat berbeda untuk tiap slot gear.
+
+### 5. Relasi Generalisasi/ISA -> Single Table dengan Kolom Diskriminator
+
+Generalisasi Material IS A {Ascension Mats, Trace Mats, Currency Mats} tidak ditranslate menjadi tabel terpisah per subtipe, melainkan digabung menjadi satu tabel material dengan kolom type (ascension_mat | trace_mat | currency) sebagai diskriminator. Pendekatan ini dipilih karena seluruh subtipe berbagi struktur atribut yang identik (name, rarity), sehingga pemisahan tabel hanya akan menambah kompleksitas join tanpa manfaat.
+
+### 6. Relasi One-to-One -> FK Nullable dengan Unique Constraint
+
+Relasi Uses antara Active_Char dan Active_LC ditranslate sebagai FK nullable pada tabel active_character (equipped_lc_id), karena satu karakter aktif bisa saja belum memiliki Light Cone terpasang. Constraint tambahan (lc_superimposition wajib diisi jika equipped_lc_id tidak NULL) tidak bisa diekspresikan murni lewat DDL relasional, sehingga diimplementasikan melalui trigger (trg_check_lc_superimposition).
+
+### 7. Constraint yang Tidak Bisa Direpresentasikan Secara Struktural -> Trigger
+
+Beberapa aturan pada catatan ERD ("Asumsi") tidak bisa dinyatakan lewat kolom atau FK biasa, sehingga diimplementasikan sebagai trigger PostgreSQL:
+
+trg_check_relic_type: memastikan effect_4pc wajib diisi untuk relic_set.type = 'relic' dan harus NULL untuk type = 'planar'.
+trg_check_lc_superimposition: memastikan lc_superimposition terisi jika dan hanya jika equipped_lc_id tidak NULL.
+
+## Screenshots Program
+
+Screenshot hasil query di DBMS (SELECT FROM WHERE)
+![Database](Data%20Storing/screenshot/dt.png)
+
+Screenshot hasil query character
+![Database](Data%20Storing/screenshot/character.png)
+
+## Penggunaan AI
+
+Penggunaan AI terbatas terhadap bagaimana baiknya melakukan web scraping menggunakan beautiful soup. Dikarenakan ini modul yang baru saya pelajari, AI digunakan untuk melakukan drilling pribadi terhadap konsep konsep web scraping pada beautiful soup.
+Semua pengerjaan coding, penyusunan skema, dan pengimplementasian database di postgres saya lakukan pribadi.
+
+## Referensi

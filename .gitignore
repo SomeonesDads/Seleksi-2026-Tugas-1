@@ -5,3 +5,13 @@ venv/
 *.pyd
 .pytest_cache/
 .DS_Store
+
+*.exe
+*.dll
+*.so
+*.o
+*.a
+*.bin
+
+.vscode/
+.idea/

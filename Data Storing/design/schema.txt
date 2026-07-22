@@ -158,3 +158,36 @@ Table active_character {
     (team_id, character_id) [unique, note: 'no duplicate chars in a team']
   }
 }
+
+Table active_char {
+  active_char_id serial [pk]
+  team_id integer [not null, ref: > team.team_id]
+  character_id integer [not null, ref: > character.character_id]
+  slot_number smallint [not null, note: '1 | 2 | 3']
+  level smallint [not null, default: 1, note: '1-80']
+  eidolon smallint [not null, default: 0, note: '0-6']
+  trace_level smallint [not null, default: 1, note: '1-10']
+  active_lc_id integer [ref: > active_lc.active_lc_id, unique, note: 'nullable, 1:1 dengan active_lc via relasi Uses']
+  indexes {
+    (team_id, slot_number) [unique, note: 'one char per slot per team']
+    (team_id, character_id) [unique, note: 'no duplicate chars in a team']
+  }
+}
+
+Table active_lc {
+  active_lc_id serial [pk]
+  light_cone_id integer [not null, ref: > light_cone.light_cone_id]
+  level smallint [not null, default: 1, note: '1-80']
+  superimposition smallint [not null, default: 1, note: '1-5']
+}
+
+Table active_relic {
+  active_char_id integer [ref: > active_character.active_char_id]
+  slot varchar(20) [not null, note: 'head | hands | body | feet | planar_sphere | link_rope']
+  relic_set_id integer [not null, ref: > relic_set.relic_set_id]
+  main_stat_id integer [not null, ref: > stat.stat_id]
+  level smallint [not null, default: 0, note: '0-15']
+  indexes {
+    (active_char_id, slot) [pk]
+  }
+}
